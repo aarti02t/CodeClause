@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #converter {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-convert {
+            width: 100%;
+            padding: 10px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Unit Converter</h1>
+
+    <div id="converter">
+        <div class="input-group">
+            <label>Value:</label>
+            <input type="number" id="input-value">
+        </div>
+
+        <div class="input-group">
+            <label>From:</label>
+            <select id="from-unit">
+                <option value="cm">Centimeters (cm)</option>
+                <option value="m">Meters (m)</option>
+                <option value="km">Kilometers (km)</option>
+                <option value="in">Inches (in)</option>
+                <option value="ft">Feet (ft)</option>
+                <option value="yd">Yards (yd)</option>
+                <option value="mi">Miles (mi)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>To:</label>
+            <select id="to-unit">
+                <option value="cm">Centimeters (cm)</option>
+                <option value="m">Meters (m)</option>
+                <option value="km">Kilometers (km)</option>
+                <option value="in">Inches (in)</option>
+                <option value="ft">Feet (ft)</option>
+                <option value="yd">Yards (yd)</option>
+                <option value="mi">Miles (mi)</option>
+            </select>
+        </div>
+
+        <button class="btn-convert" onclick="convert()">Convert</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function convert() {
+            var value = parseFloat($("#input-value").val());
+            var fromUnit = $("#from-unit").val();
+            var toUnit = $("#to-unit").val();
+
+            var convertedValue = 0;
+
+            // Conversion logic
+            if (fromUnit === "cm") {
+                if (toUnit === "m")
+                    convertedValue = value / 100;
+                else if (toUnit === "km")
+                    convertedValue = value / 100000;
+                else if (toUnit === "in")
+                    convertedValue = value / 2.54;
+                else if (toUnit === "ft")
+                    convertedValue = value / 30.48;
+                else if (toUnit === "yd")
+                    convertedValue = value / 91.44;
+                else if (toUnit === "mi")
+                    convertedValue = value / 160934;
+                else
+                    convertedValue = value;
+            } else if (fromUnit === "m") {
+                // Implement conversion logic for other units
+            } else if (fromUnit === "km") {
+                // Implement conversion logic for other units
+            } else if (fromUnit === "in") {
+                // Implement conversion logic for other units
+            } else if (fromUnit === "ft") {
+                // Implement conversion logic for other units
+            } else if (fromUnit === "yd") {
+                // Implement conversion logic for other units
+            } else if (fromUnit === "mi") {
+                // Implement conversion logic for other units
+            }
+
+            $("#result").text("Converted value: " + convertedValue.toFixed(2) + " " + toUnit);
+        }
+    </script>
+</body>
+
+</html>
